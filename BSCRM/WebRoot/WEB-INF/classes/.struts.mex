@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="abstract_struts" location="0,0" size="0,0" />
+  <include file="struts_sysusergroup.xml" location="0,0" size="0,0" />
+  <include file="struts_sysuser.xml" location="0,0" size="0,0" />
+  <include file="struts_login.xml" location="0,0" size="0,0" />
+  <include file="struts_course.xml" location="0,0" size="0,0" />
+  <include file="struts_salary.xml" location="0,0" size="0,0" />
+  <include file="struts_uploadfile.xml" location="0,0" size="0,0" />
+  <include file="struts_operate.xml" location="0,0" size="0,0" />
+  <include file="struts_syslog.xml" location="0,0" size="0,0" />
+  <include file="struts_role.xml" location="0,0" size="0,0" />
+</Struts2Diagram>
+

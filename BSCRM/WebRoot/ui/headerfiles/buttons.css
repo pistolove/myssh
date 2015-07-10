@@ -1,0 +1,99 @@
+body {
+     background: none repeat scroll 0% 0% #285491;
+     color: #285491;
+     font-family: Verdana,Arial,Helvetica,sans-serif;
+     font-size: 80%;
+     margin: 0px;
+     vertical-align: top;
+}
+
+
+img {
+     border: 0px none;
+     margin: 0px;
+     padding: 0px;
+     vertical-align: middle;
+}
+
+
+a {
+     outline: medium none;
+}
+
+a:link {
+     color: #00248A;
+     text-decoration: none;
+}
+
+a:visited {
+     color: #4B6BC6;
+     text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+     background-color: #2E6AB1;
+     color: white;
+}
+
+a.fixed:link {
+     color: #00248A;
+     text-decoration: none;
+}
+
+a.fixed:visited {
+     color: #00248A;
+     text-decoration: none;
+}
+
+a.fixed:hover {
+     background-color: #2E6AB1;
+     color: white;
+}
+
+.clearboth {
+     clear: both;
+     font-size: 1px;
+     height: 0px;
+     line-height: 0px;
+     margin: 0px;
+     padding: 0px;
+}
+
+--------------
+
+.messagestable {
+     width: 100%;
+}
+
+.wrapper2 {
+     margin: auto;
+     width: 966px;
+}
+
+.tabsheader {
+     clear: both;
+     color: green;
+     font-family: verdana,arial,TrebuchetMS,tahoma,arial,verdana,tahoma,verdana,sans-serif;
+     font-size: 100%;
+     text-align: center;
+}
+
+.tabsheader ul {
+     display: inline;
+     list-style-type: none;
+     margin: 0px;
+     padding: 0px;
+}
+
+
+.tabsheader a {
+     background-image: url("tabsdarkwide.gif");
+     background-position: -105px 0pt;
+     color: #DEDEDE;
+     float: left;
+     height: 24px;
+     margin-right: 4px;
+     padding-top: 6px;
+     position: relative;
+     width: 105px;
+}

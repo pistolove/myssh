@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="uploadFile" namespace="/" extends="abstract_struts">
+		<action name="uploadFileAction_*" class="cn.jwdsy.crm.web.action.UploadFileAction" method="{1}">
+			<result name="AddUI">/WEB-INF/Page/sys/upload/add.jsp</result>
+			<result name="ListUI">/WEB-INF/Page/sys/upload/list.jsp</result>
+			<result name="input">/WEB-INF/Page/error.jsp</result>
+			<result name="success">/WEB-INF/Page/success.jsp</result>
+			<result name="ImageView">/WEB-INF/Page/sys/upload/imageView.jsp</result>
+			<result name="ListAction" type="redirectAction">uploadFileAction_Check.do</result>
+		</action>
+	</package>
+</struts>

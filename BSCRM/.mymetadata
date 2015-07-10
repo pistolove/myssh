@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="BSCRM"
+  id="myeclipse.1329752826842"
+  context-root="/BSCRM"
+  j2ee-spec="5.0"
+  archive="BSCRM.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

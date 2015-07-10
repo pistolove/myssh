@@ -1,0 +1,20 @@
+.body{
+	background-image: url('background.png');
+}
+.myform{
+	position:absolute;
+	left:940px;
+	top:403px;
+}
+.login_button{
+	position:absolute;
+	left:1123px;
+	top:513px;
+}
+.queding{
+	height:35px;
+	width:88px;
+	background: url('login.png');
+	border: 0px solid;
+	cursor: pointer;
+}

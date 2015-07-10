@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="sysLog" location="50,50" size="170,92">
+    <action name="sysLogAction_*" location="10,20" size="150,62">
+      <result name="ListUI">
+        <resourceEdge source="ListUI" routing="0" target="list.jsp" />
+      </result>
+      <result name="ListAction" />
+    </action>
+  </package>
+  <webResource name="add.jsp" path="/WEB-INF/Page/sys/group/add.jsp" location="321,430" size="150,55" />
+  <webResource name="list.jsp" path="/WEB-INF/Page/sys/group/list.jsp" location="10,220" size="150,55" />
+  <webResource name="edit.jsp" path="/WEB-INF/Page/sys/group/edit.jsp" location="322,10" size="150,55" />
+  <webResource name="usersInGroup.jsp" path="/WEB-INF/Page/sys/group/usersInGroup.jsp" location="643,220" size="150,55" />
+  <webResource name="list.jsp" path="/WEB-INF/Page/sys/log/list.jsp" location="200,200" size="150,55" />
+</Struts2Diagram>
+

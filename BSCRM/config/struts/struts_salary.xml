@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="salary" namespace="/" extends="abstract_struts">
+
+	<action name="salaryAction_*" class="cn.jwdsy.crm.web.action.SalaryAction" method="{1}">
+		<result name="AddUI">/WEB-INF/Page/sys/salary/add.jsp</result>
+		<result name="ListUI">/WEB-INF/Page/sys/salary/list.jsp</result>
+		<result name="EditUI">/WEB-INF/Page/sys/salary/edit.jsp</result>
+		<result name="ChartUI">/WEB-INF/Page/sys/salary/chart.jsp</result>
+		<result name="ListAction" type="redirectAction">salaryAction_Check.do</result>
+	</action>
+	</package>
+</struts>

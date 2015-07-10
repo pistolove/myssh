@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<title>KindEditor 4.x Documentation</title>
+    <link rel="stylesheet" href="usage_files/classy.css" type="text/css">
+    <link rel="stylesheet" href="usage_files/pygments.css" type="text/css">
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '4.x',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="usage_files/jquery.js"></script>
+    <script type="text/javascript" src="usage_files/underscore.js"></script>
+    <script type="text/javascript" src="usage_files/doctools.js"></script>
+    <link rel="top" title="KindEditor v4.x documentation" href="http://www.kindsoft.net/docs/index.html">
+    <link rel="next" title="从3.x升级到4.x版本" href="http://www.kindsoft.net/docs/upgrade.html">
+    <link rel="prev" title="KindEditor 4.x 文档" href="http://www.kindsoft.net/docs/index.html"> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="http://www.kindsoft.net/docs/genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="http://www.kindsoft.net/docs/upgrade.html" title="从3.x升级到4.x版本" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="http://www.kindsoft.net/docs/index.html" title="KindEditor 4.x 文档" accesskey="P">previous</a> |</li>
+        <li><a href="http://www.kindsoft.net/docs/index.html">KindEditor v4.x documentation</a> »</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>编辑器使用方法<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>1. 下载编辑器<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>下载 KindEditor 最新版本，下载之后打开 examples/index.html 就可以看到演示。</p>
+<p>下载页面: <a class="reference external" href="http://www.kindsoft.net/down.php">http://www.kindsoft.net/down.php</a></p>
+</div>
+<div class="section" id="id3">
+<h2>2. 部署编辑器<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>解压 kindeditor-x.x.x.zip 文件，将所有文件上传到您的网站程序目录里，例如：http://您的域名/editor/</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>您可以根据需求删除以下目录后上传到服务器。</p>
+<ul class="last simple">
+<li>asp - ASP程序</li>
+<li>asp.net - ASP.NET程序</li>
+<li>php - PHP程序</li>
+<li>jsp - JSP程序</li>
+<li>examples - 演示文件</li>
+</ul>
+</div>
+</div>
+<div class="section" id="html">
+<h2>3. 修改HTML页面<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>在需要显示编辑器的位置添加textarea输入框。</li>
+</ol>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"editor_id"</span> <span class="na">name=</span><span class="s">"content"</span> <span class="na">style=</span><span class="s">"width:700px;height:300px;"</span><span class="nt">&gt;</span>
+<span class="ni">&amp;lt;</span>strong<span class="ni">&amp;gt;</span>HTML内容<span class="ni">&amp;lt;</span>/strong<span class="ni">&amp;gt;</span>
+<span class="nt">&lt;/textarea&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>id在当前页面必须是唯一的值。</li>
+<li>在textarea里设置HTML内容即可实现编辑，在这里需要注意的是，如果从服务器端程序(ASP、PHP、ASP.NET等)直接显示内
+容，则必须转换HTML特殊字符(&gt;,&lt;,&amp;,”)。具体请参考各语言目录下面的demo.xxx程序，目前支持ASP、
+ASP.NET、PHP、JSP。</li>
+<li>在有些浏览器上不设宽度和高度可能显示有问题，所以最好设一下宽度和高度。宽度和高度可用inline样式设置，也可用 <a class="reference internal" href="http://www.kindsoft.net/docs/option.html"><em>编辑器初始化参数</em></a> 设置。</li>
+</ul>
+</div>
+<ol class="arabic simple" start="2">
+<li>在该HTML页面添加以下脚本。</li>
+</ol>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">charset=</span><span class="s">"utf-8"</span> <span class="na">src=</span><span class="s">"/editor/kindeditor.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">charset=</span><span class="s">"utf-8"</span> <span class="na">src=</span><span class="s">"/editor/lang/zh_CN.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+        <span class="kd">var</span> <span class="nx">editor</span><span class="p">;</span>
+        <span class="nx">KindEditor</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">K</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">editor</span> <span class="o">=</span> <span class="nx">K</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">'#editor_id'</span><span class="p">);</span>
+        <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>第一个参数可用其它CSS选择器，匹配多个textarea时只在第一个元素上加载编辑器。</li>
+<li>通过K.create函数的第二个参数，可以对编辑器进行配置，具体参数请参考 <a class="reference internal" href="http://www.kindsoft.net/docs/option.html"><em>编辑器初始化参数</em></a> 。</li>
+</ul>
+</div>
+<div class="highlight-js"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">cssPath</span> <span class="o">:</span> <span class="s1">'/css/index.css'</span><span class="p">,</span>
+        <span class="nx">filterMode</span> <span class="o">:</span> <span class="kc">true</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">K</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">'textarea[name="content"]'</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>4. 获取HTML数据<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-js"><div class="highlight"><pre><span class="c1">// 取得HTML内容</span>
+<span class="nx">html</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">html</span><span class="p">();</span>
+
+<span class="c1">// 同步数据后可以直接取得textarea的value</span>
+<span class="nx">editor</span><span class="p">.</span><span class="nx">sync</span><span class="p">();</span>
+<span class="nx">html</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'editor_id'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span> <span class="c1">// 原生API</span>
+<span class="nx">html</span> <span class="o">=</span> <span class="nx">K</span><span class="p">(</span><span class="s1">'#editor_id'</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span> <span class="c1">// KindEditor Node API</span>
+<span class="nx">html</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#editor_id'</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span> <span class="c1">// jQuery</span>
+
+<span class="c1">// 设置HTML内容</span>
+<span class="nx">editor</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">'HTML内容'</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>KindEditor的可视化操作在新创建的iframe上执行，代码模式下的textarea框也是新创建的，所以最后提交前需要将HTML数据同步到原来的textarea，editor.sync()函数会完成这个动作。</li>
+<li>KindEditor在默认情况下自动寻找textarea所属的form元素，找到form后onsubmit事件里添加sync函数，所以用form方式提交数据，不需要手动执行sync()函数。</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="http://www.kindsoft.net/docs/genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="http://www.kindsoft.net/docs/upgrade.html" title="从3.x升级到4.x版本">next</a> |</li>
+        <li class="right">
+          <a href="http://www.kindsoft.net/docs/index.html" title="KindEditor 4.x 文档">previous</a> |</li>
+        <li><a href="http://www.kindsoft.net/docs/index.html">KindEditor v4.x documentation</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        © Copyright kindsoft.net.
+    </div>
+  
+</body></html>

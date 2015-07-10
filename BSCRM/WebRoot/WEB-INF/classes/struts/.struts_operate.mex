@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="operate" location="350,50" size="170,113">
+    <action name="operateAction_*" location="10,20" size="150,83">
+      <result name="AddUI">
+        <resourceEdge source="AddUI" routing="0" target="add.jsp" />
+      </result>
+      <result name="ListUI">
+        <resourceEdge source="ListUI" routing="0" target="list.jsp" />
+      </result>
+      <result name="EditUI">
+        <resourceEdge source="EditUI" routing="0" target="edit.jsp" />
+      </result>
+      <result name="ListAction" />
+    </action>
+  </package>
+  <webResource name="login1.jsp" path="/WEB-INF/Page/login1.jsp" location="62,10" size="150,55" />
+  <webResource name="main.jsp" path="/WEB-INF/Page/sys/main/main.jsp" location="913,150" size="150,55" />
+  <webResource name="top.jsp" path="/WEB-INF/Page/sys/main/top.jsp" location="917,325" size="150,55" />
+  <webResource name="down.jsp" path="/WEB-INF/Page/sys/main/down.jsp" location="701,570" size="150,55" />
+  <webResource name="login.jsp" path="/WEB-INF/Page/login.jsp" location="450,570" size="150,55" />
+  <webResource name="image.jsp" path="/WEB-INF/Page/image.jsp" location="202,570" size="150,55" />
+  <webResource name="Listal.jsp" path="/WEB-INF/Page/sys/main/Listal.jsp" location="200,350" size="150,55" />
+  <webResource name="main.jsp" path="/WEB-INF/Page/sys/operate/main.jsp" location="0,0" size="0,0" />
+  <webResource name="top.jsp" path="/WEB-INF/Page/sys/operate/top.jsp" location="0,0" size="0,0" />
+  <webResource name="down.jsp" path="/WEB-INF/Page/sys/operate/down.jsp" location="0,0" size="0,0" />
+  <webResource name="add.jsp" path="/WEB-INF/Page/sys/role/add.jsp" location="0,0" size="0,0" />
+  <webResource name="list.jsp" path="/WEB-INF/Page/sys/role/list.jsp" location="0,0" size="0,0" />
+  <webResource name="edit.jsp" path="/WEB-INF/Page/sys/role/edit.jsp" location="0,0" size="0,0" />
+  <webResource name="add.jsp" path="/WEB-INF/Page/sys/operate/add.jsp" location="0,0" size="0,0" />
+  <webResource name="list.jsp" path="/WEB-INF/Page/sys/operate/list.jsp" location="0,0" size="0,0" />
+  <webResource name="edit.jsp" path="/WEB-INF/Page/sys/operate/edit.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

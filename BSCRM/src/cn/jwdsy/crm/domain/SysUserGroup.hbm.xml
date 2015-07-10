@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.jwdsy.crm.domain.SysUserGroup" table="sys_user_group" lazy="false">
+		<cache usage="read-write"/>
+		<id name="groupId" type="integer" length="10">
+			<column name="groupId"/>
+			<generator class="identity">
+			</generator>
+		</id>
+		<property name="name" type="string" length="100">
+			<column name="name" sql-type="varchar(20)"/>
+		</property>
+		<property name="principal" type="string" length="50">
+			<column name="principal" sql-type="varchar(20)"/>
+		</property>
+		<property name="incumbent" type="string" length="200">
+			<column name="incumbent" sql-type="varchar(200)"/>
+		</property>
+		<property name="remark" type="string">
+			<column name="remark" sql-type="text"/>
+		</property>
+		
+		<set name="users" table="sys_user" cascade="save-update" >
+			<cache usage="read-write"/>
+			<key column="groupId"></key>
+			<one-to-many class="cn.jwdsy.crm.domain.SysUser"/>
+		</set>
+	</class>
+</hibernate-mapping>

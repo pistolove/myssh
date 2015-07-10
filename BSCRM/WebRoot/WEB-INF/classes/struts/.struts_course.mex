@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="course" location="0,0" size="0,0">
+    <action name="courseAction_*" location="0,0" size="0,0">
+      <result name="AddUI">
+        <resourceEdge source="AddUI" routing="0" target="add.jsp" />
+      </result>
+      <result name="ListUI">
+        <resourceEdge source="ListUI" routing="0" target="list.jsp" />
+      </result>
+      <result name="EditUI">
+        <resourceEdge source="EditUI" routing="0" target="edit.jsp" />
+      </result>
+      <result name="ListAction" />
+    </action>
+  </package>
+  <webResource name="add.jsp" path="/WEB-INF/Page/sys/province/add.jsp" location="29,430" size="150,55" />
+  <webResource name="list.jsp" path="/WEB-INF/Page/sys/province/list.jsp" location="33,10" size="150,55" />
+  <webResource name="edit.jsp" path="/WEB-INF/Page/sys/province/edit.jsp" location="345,220" size="150,55" />
+  <webResource name="add.jsp" path="/WEB-INF/Page/sys/course/add.jsp" location="0,0" size="0,0" />
+  <webResource name="list.jsp" path="/WEB-INF/Page/sys/course/list.jsp" location="0,0" size="0,0" />
+  <webResource name="edit.jsp" path="/WEB-INF/Page/sys/course/edit.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

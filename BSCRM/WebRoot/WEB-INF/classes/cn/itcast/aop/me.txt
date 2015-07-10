@@ -1,0 +1,76 @@
+struts2中如何自定义拦截器
+  * 需求
+       * 如果用户登陆,则可以访问UserAction的save()方法
+	   * 如果用户没有登陆,则不可以访问UserAction的save()方法，转到error.jsp页面
+	   * 本例采用用户模拟登陆:session.setAttribute("user","user")
+		  * 如果session中存在user信息,表示用户已经登陆,否则没有登陆
+
+  * 自定义拦截器
+            **
+			 * 自定义拦截器,需要实现Interceptor接口
+			 */
+			@SuppressWarnings("serial")
+			public class PerssionInterceptor implements Interceptor {
+				public PerssionInterceptor(){
+				   System.out.println("PerssionInterceptor的构造方法");
+				}
+				
+				/**
+				 * 在拦截器的生命周期中,调用1次
+				 */
+				public void init() {
+			       System.out.println("PerssionInterceptor init方法");
+				}
+				/**
+				 * 在拦截器的生命周期中,调用n次
+				 * ActionInvocation:保存struts2运行时的上下文信息,有struts2运行自动注入
+				 */
+				public String intercept(ActionInvocation invocation) throws Exception {
+					System.out.println("PerssionInterceptor intercept方法");
+					
+					System.out.println(" invocation.getAction()   "+invocation.getAction());
+					System.out.println(" invocation.getProxy()   "+invocation.getProxy());
+					System.out.println(" invocation.getProxy().getActionName()   "+invocation.getProxy().getActionName());
+					System.out.println(" invocation.getProxy().getMethod()   "+invocation.getProxy().getMethod());
+					System.out.println(" invocation.getProxy().getNamespace()  "+invocation.getProxy().getNamespace());
+				
+					//获取session
+					Map sessionMap=invocation.getInvocationContext().getSession();
+					Object obj=sessionMap.get("user");
+					if(obj==null){
+						// <result name="error">/aop/error.jsp</result>
+						return "error";
+					}
+					
+					
+					//调用action中的方法
+					String returnvalue=invocation.invoke();
+					System.out.println("returnvalue  "+returnvalue);
+					
+					//<result name="success">/aop/success.jsp</result>
+					return returnvalue;
+				}
+				/**
+				 * 在拦截器的生命周期中,调用1次
+				 */
+				public void destroy() {
+					 System.out.println("PerssionInterceptor destroy方法");
+				}
+			}
+			
+	* 在	struts_aop.xml文件中配置自定义的拦截器(这里在包中配置)
+			 <interceptors>
+		            <!-- 声明自定义的拦截器 -->
+		            <interceptor name="perssionInterceptor" class="cn.itcast.aop.PerssionInterceptor" />
+		            <!-- 声明新的拦截器栈 -->
+		            <interceptor-stack name="perssionStack">
+		                <interceptor-ref name="defaultStack"/>
+		                <!-- 在拦截器栈中加入自定义的拦截器 -->
+		                <interceptor-ref name="perssionInterceptor"/>
+		            </interceptor-stack>
+		     </interceptors>
+		     
+		     <!-- 配置struts2框架运行时,真正要执行的拦截器栈 -->
+		     <default-interceptor-ref name="perssionStack"/>
+			   
+    * 测试		  

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache> 
+	<diskStore path="D:\\tempDir" />
+	<defaultCache 
+		maxElementsInMemory="5"
+		eternal="false"
+		overflowToDisk="true"
+		timeToIdleSeconds="15"
+		timeToLiveSeconds="120"
+		/>
+</ehcache>
+	

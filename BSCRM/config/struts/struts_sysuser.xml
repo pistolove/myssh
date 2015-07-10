@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="sysUser" namespace="/" extends="abstract_struts">
+		<action name="sysUserAction_*" class="cn.jwdsy.crm.web.action.SysUserAction" method="{1}">
+		<!-- 
+			<result name="Login">/WEB-INF/Page/login1.jsp</result>
+			<result name="ChangeImg">/WEB-INF/Page/image.jsp</result>
+			 -->
+			<result name="AddUI">/WEB-INF/Page/sys/user/add.jsp</result>
+			<result name="ListUI">/WEB-INF/Page/sys/user/list.jsp</result>
+			<result name="EditUI">/WEB-INF/Page/sys/user/edit.jsp</result>
+			<result name="ChangePassWord">/WEB-INF/Page/sys/user/loadPassword.jsp</result>
+			<result name="ListAction" type="redirectAction">sysUserAction_Check.do</result>
+		</action>
+	</package>
+</struts>

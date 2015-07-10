@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.action.extension" value="do"/>
+	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.ui.theme" value="simple"/>
+	<constant name="struts.multipart.maxSize" value="20971520"/>
+	<constant name="struts.custom.i18n.resources" value="fileupload"/>
+	
+	<!-- 其他的struts文件里面都继承abstract_struts -->
+	<package name="abstract_struts" abstract="true" extends="struts-default">
+	  	<interceptors>
+			<interceptor name="authInterceptor" class="cn.jwdsy.crm.aop.AuthInterceptor"/>
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="authInterceptor"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="authStack"/>
+		
+		<global-results>
+		   <result name="LoginIn">login.jsp</result>
+		   <result name="404Error">/WEB-INF/Page/404.jsp</result>
+		   <result name="Limited">/WEB-INF/Page/limited.jsp</result>
+	 	</global-results>
+	 </package>
+	 
+	 
+	<include file="struts/struts_sysusergroup.xml"/>
+	<include file="struts/struts_sysuser.xml"/>
+	<include file="struts/struts_login.xml"/>
+	<include file="struts/struts_course.xml"/>
+	<include file="struts/struts_salary.xml"/>
+	<include file="struts/struts_uploadfile.xml"/>
+	<include file="struts/struts_operate.xml"/>
+	<include file="struts/struts_syslog.xml"/>
+	<include file="struts/struts_role.xml"/>
+	
+</struts>

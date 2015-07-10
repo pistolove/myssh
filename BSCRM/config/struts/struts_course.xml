@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="course" namespace="/" extends="abstract_struts">
+
+	<action name="courseAction_*" class="cn.jwdsy.crm.web.action.CourseAction" method="{1}">
+		<result name="AddUI">/WEB-INF/Page/sys/course/add.jsp</result>
+		<result name="ListUI">/WEB-INF/Page/sys/course/list.jsp</result>
+		<result name="EditUI">/WEB-INF/Page/sys/course/edit.jsp</result>
+		<result name="ListAction" type="redirectAction">courseAction_Check.do</result>
+	</action>
+	</package>
+</struts>

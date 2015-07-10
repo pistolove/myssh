@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="sysLog" namespace="/" extends="abstract_struts">
+		<action name="sysLogAction_*" class="cn.jwdsy.crm.web.action.SysLogAction" method="{1}">
+			<result name="ListUI">/WEB-INF/Page/sys/log/list.jsp</result>
+			<result name="ListAction" type="redirectAction">sysLogAction_Check.do</result>
+		</action>
+	</package>
+</struts>

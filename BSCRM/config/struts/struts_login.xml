@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="login" namespace="/" extends="abstract_struts">
+
+	<action name="loginAction_*" class="cn.jwdsy.crm.web.action.LoginAction" method="{1}">
+		<result name="MenuMain">/WEB-INF/Page/main.jsp</result>
+		<result name="MenuTop">/WEB-INF/Page/top.jsp</result>
+		<result name="MenuDown">/WEB-INF/Page/down.jsp</result>
+		
+		<!--
+		<result name="LoginUI">/WEB-INF/Page/login.jsp</result>
+		<result name="Index">/WEB-INF/Page/login2.jsp</result>
+		-->
+		<result name="ChangeImg">/WEB-INF/Page/image.jsp</result>
+	</action>
+	</package>
+</struts>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="aop" namespace="/aop" extends="struts-default">
+	
+	<interceptors>
+		<!-- 声明自定义的拦截器 -->
+		<interceptor name="personInterceptor" class="cn.itcast.aop.PersonInterceptor"/>
+		<!-- 声明新的拦截器栈 -->
+		<interceptor-stack name="personStack">
+			<interceptor-ref name="defaultStack"/>
+			<!-- 将自定义的拦截器 加入到默认拦截器栈后面，最后配置执行自定义拦截器栈
+					当程序执行的时候先执行默认拦截器栈，在执行自定义拦截器-->
+			<interceptor-ref name="personInterceptor"/>
+		</interceptor-stack>
+	</interceptors>
+	
+	<!-- 配置struts2框架运行时，真正要执行的拦截器栈，即自定义的新的拦截器栈 -->
+	<default-interceptor-ref name="personStack"/>
+	
+		<action name="userAction_*" class="cn.itcast.aop.UserAction" method="{1}">
+				<result name="success">/aop/success.jsp</result>
+				<result name="error">/aop/error.jsp</result>
+		</action>
+	</package>
+</struts>

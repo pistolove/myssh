@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="role" location="0,0" size="0,0">
+    <action name="sysRoleAction_*" location="0,0" size="0,0">
+      <result name="AddUI">
+        <resourceEdge source="AddUI" routing="0" target="add.jsp" />
+      </result>
+      <result name="ListUI">
+        <resourceEdge source="ListUI" routing="0" target="list.jsp" />
+      </result>
+      <result name="EditUI">
+        <resourceEdge source="EditUI" routing="0" target="edit.jsp" />
+      </result>
+      <result name="ListOperate">
+        <resourceEdge source="ListOperate" routing="0" target="operatesInRole.jsp" />
+      </result>
+      <result name="ListAction" />
+    </action>
+  </package>
+  <webResource name="main.jsp" path="/WEB-INF/Page/sys/main/main.jsp" location="38,430" size="150,55" />
+  <webResource name="top.jsp" path="/WEB-INF/Page/sys/main/top.jsp" location="42,10" size="150,55" />
+  <webResource name="down.jsp" path="/WEB-INF/Page/sys/main/down.jsp" location="351,220" size="150,55" />
+  <webResource name="add.jsp" path="/WEB-INF/Page/sys/role/add.jsp" location="0,0" size="0,0" />
+  <webResource name="list.jsp" path="/WEB-INF/Page/sys/role/list.jsp" location="0,0" size="0,0" />
+  <webResource name="edit.jsp" path="/WEB-INF/Page/sys/role/edit.jsp" location="0,0" size="0,0" />
+  <webResource name="view.jsp" path="/WEB-INF/Page/sys/role/popedom/view.jsp" location="0,0" size="0,0" />
+  <webResource name="operatesInRole.jsp" path="/WEB-INF/Page/sys/role/operatesInRole.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

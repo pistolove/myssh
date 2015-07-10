@@ -1,0 +1,117 @@
+<!-- Jquery ValidateEngine -->
+Jquery ValidateEngine的表单验证，每一个被验证的form和文本框都需要一个对应的id属性
+Jquery 1.6.min与1.4.2不能够兼容，两者不能够共存！看看查询一下有没有Jquery1.6代替1.4.2
+
+
+
+DateUtils中通过copyproperties方法将VO拷贝到 PO里面，但是日期类型不能够转化好，所以就需要一个转换器，将String格式的
+数据转化为java.util.Date类型的数据，在mysql数据库中，日期类型字段的类型要设置成datetime类型来接受数据就能够将日期
+数据装到数据之中了
+        <property name="creator" type="java.util.String" length="100">
+            <column name="creator" sql-type="varchar(100)"/>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="createTime" sql-type="datetime"/>
+        </property>
+        <property name="updater" type="java.util.String" length="100">
+            <column name="updater" sql-type="varchar(100)"/>
+        </property>
+        <property name="updateTime" type="java.util.Date">
+            <column name="updateTime" sql-type="datetime"/>
+        </property>
+        
+表单验证，错误显示的位置可以在jquery.validationEngine.js的1700行修改
+其显示位置有以下几种
+	possible values topLeft, topRight, bottomLeft, centerRight, bottomRight  
+	
+	
+	
+    #################################################################################################
+   #解决a different object with the same identifier value was already associated with the session错误#
+	#################################################################################################
+	
+	这个错误我一共遇到过两次，一直没有找到很好的解决方案，这个错误产生
+
+原因相信大家都知道，因为在hibernate中同一个session里面有了两个相同标识
+
+但是是不同实体，当这时运行saveOrUpdate(object)操作的时候就会报这个错误。
+
+呵呵，也许你会说，你这么说跟没说没什么区别，我承认，呵呵，我不知道具体
+
+为什么会产生这个错误，要不然也不会很久都没有解决，现在，给出一个临时的
+
+解决方案，给向我一样，没有办法找到根源的人一个能够继续执行下去的方法
+
+（当然是对的，只是不是从产生原因入手）
+    其实要解决这个问题很简单，只需要进行session.clean()操作就可以解决
+
+了，但是你在clean操作后面又进行了saveOrUpdate(object)操作，有可能
+
+会报出"Found two representations of same collection"，我找了很多资料，
+
+没有什么很好的解释，其中这篇文章帮助最大
+
+http://opensource.atlassian.com/projects/hibernate/browse/HHH-509。
+
+最后通过session.refresh(object)方法就可以解决了，注意，当object不
+
+是数据库中已有数据的对象的时候，不能使用session.refresh(object)因
+
+为refresh是从hibernate的session中去重新取object，如果session中没
+
+有这个对象，则会报错所以当你使用saveOrUpdate(object)之前还需要判
+
+断一下
+
+    当然这个问题最容易解决的办法还是使用Hibernate里面自带的merge()
+
+方法。不过我始终觉得碰到问题就用这种软件自带的非常用方法
+
+（和saveOrUpdate()，save(),update()相比）感觉十分不爽。
+    后来我还发现这种错误经常出现在一对多映射和多对多映射，请大家在
+
+使用一对多和多对多映射的时候要小心一些
+Hibernate 疑难异常及处理
+1、a different object with the same identifier value was already associated with the session。
+　　错误原因：在hibernate中同一个session里面有了两个相同标识但是是不同实体。
+　　解决方法一：session.clean()
+　　PS：如果在clean操作后面又进行了saveOrUpdate(object)等改变数据状态的操作，有可能会报出"Found two representations of same collection"异常。
+　　解决方法二：session.refresh(object)
+　　PS：当object不是数据库中已有数据的对象的时候，不能使用session.refresh(object)因为该方法是从hibernate的session中去重新取object，如果session中没有这个对象，则会报错所以当你使用saveOrUpdate(object)之前还需要判断一下。
+　　解决方法三：session.merge(object)
+　　PS：Hibernate里面自带的方法，推荐使用。
+2、Found two representations of same collection
+　　错误原因：见1。
+　　解决方法：session.merge(object)
+以上两中异常经常出现在一对多映射和多对多映射中
+
+
+
+
+
+
+
+
+SELECT 
+  COUNT(*) "number",
+  CASE
+    WHEN s.summation <= 1000 
+    THEN '1000以下' 
+    WHEN s.summation <= 2000 
+    THEN '1000~2000' 
+    WHEN s.summation <= 2500 
+    THEN '2000~2500' 
+    WHEN s.summation <= 3000 
+    THEN '2500~3000' 
+    WHEN s.summation <= 3500 
+    THEN '3000~3500' 
+    WHEN s.summation <= 4000 
+    THEN '3500~4000' 
+    WHEN s.summation <= 4500 
+    THEN '4000~4500' 
+    WHEN s.summation > 5000 
+    THEN '5000以上' 
+  END AS plolicy 
+FROM
+  salary s 
+GROUP BY plolicy ;
